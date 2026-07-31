@@ -302,3 +302,19 @@ elements.todayButton.addEventListener("click", () => selectDate(today));
 
 renderSchedule();
 renderAll();
+
+function loadVisitCounter() {
+  const counterScript = document.createElement("script");
+  counterScript.src = "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+  counterScript.async = true;
+  document.body.appendChild(counterScript);
+}
+
+window.addEventListener("load", () => {
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(loadVisitCounter, { timeout: 2000 });
+    return;
+  }
+
+  window.setTimeout(loadVisitCounter, 0);
+});

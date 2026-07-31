@@ -270,8 +270,10 @@ button { font: inherit; }
 .schedule-boss { display: block; overflow: hidden; margin-top: 6px; font-family: "Songti SC", STSong, serif; font-size: 14px; text-overflow: ellipsis; white-space: nowrap; }
 .schedule-item.has-extreme::after { content: "极"; position: absolute; top: 2px; right: 8px; color: #e47468; font-size: 9px; }
 
-footer { display: flex; justify-content: flex-end; width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 20px 0 32px; color: #77717d; border-top: 1px solid var(--line); font-size: 10px; letter-spacing: .06em; }
+footer { display: flex; justify-content: flex-end; gap: 14px; width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 20px 0 32px; color: #77717d; border-top: 1px solid var(--line); font-size: 10px; letter-spacing: .06em; }
 footer p { margin: 0; }
+.visit-counter::before { content: "·"; margin-right: 14px; }
+.visit-counter strong { color: var(--gold); font: inherit; }
 
 [hidden] { display: none !important; }
 .sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
@@ -443,8 +445,10 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
   .calendar-legend { justify-content: flex-start; padding-left: 5px; }
   .calendar-legend .wheel-hint { display: none; }
   .schedule-strip { display: none; }
-  footer { line-height: 1.8; }
+  footer { flex-wrap: wrap; gap: 0; line-height: 1.8; }
   footer span { display: block; }
+  .visit-counter { width: 100%; }
+  .visit-counter::before { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

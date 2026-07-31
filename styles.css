@@ -139,7 +139,7 @@ button { font: inherit; }
 .encounter-info h2 { margin: 0 0 22px; font-family: "Songti SC", STSong, serif; font-size: clamp(36px, 4.3vw, 52px); font-weight: 500; letter-spacing: .08em; }
 .term-panel, .ordinary-panel { padding: 19px 20px; border-radius: 14px; }
 .term-panel { display: flex; gap: 15px; align-items: center; background: linear-gradient(120deg, rgba(174,55,51,.26), rgba(174,55,51,.06)); border: 1px solid rgba(222,112,90,.2); }
-.term-icon { display: block; background-image: url("assets/term-icons/sprite-v1.webp"); background-repeat: no-repeat; background-size: 700% 100%; border-radius: 50%; }
+.term-icon { display: block; background-image: url("assets/term-icons/sprite-v2.webp"); background-repeat: no-repeat; background-size: 700% 100%; border-radius: 50%; }
 .term-icon[data-term-icon="douhun"] { background-position: 0% 50%; }
 .term-icon[data-term-icon="jixing"] { background-position: 16.6667% 50%; }
 .term-icon[data-term-icon="qiaojin"] { background-position: 33.3333% 50%; }

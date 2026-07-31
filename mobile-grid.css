@@ -12,7 +12,7 @@
     font-size: 15px;
   }
 
-  .day-term { display: inline-flex; gap: 2px; min-width: 0; margin: 7px auto 0; padding: 2px 4px 2px 2px; font-size: 9px; }
-  .day-term-icon { width: 16px; height: 16px; }
+  .day-term { display: inline-grid; min-width: 32px; margin: 9px auto 0; padding: 3px 4px; border-radius: 6px; font-size: 10px; }
+  .day-term-icon { display: none; }
   .day-cell.is-outside .day-term { display: none; }
 }

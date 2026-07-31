@@ -337,6 +337,21 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
   .schedule-item { padding: 1px 8px; }
   .schedule-boss { margin-top: 3px; font-size: 12px; }
   footer { display: none; }
+  footer.has-visit-count {
+    display: flex;
+    position: fixed;
+    right: 18px;
+    bottom: 12px;
+    z-index: 10;
+    width: auto;
+    margin: 0;
+    padding: 6px 10px;
+    border: 1px solid rgba(212,173,104,.2);
+    border-radius: 999px;
+    background: rgba(23,20,31,.92);
+  }
+  footer.has-visit-count > span:first-child { display: none; }
+  footer.has-visit-count .visit-counter::before { display: none; }
 }
 
 @media (min-width: 901px) and (max-height: 650px) {

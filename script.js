@@ -304,6 +304,19 @@ renderSchedule();
 renderAll();
 
 function loadVisitCounter() {
+  const counter = document.getElementById("busuanzi_container_site_pv");
+  const counterValue = document.getElementById("busuanzi_value_site_pv");
+  const footer = counter?.closest("footer");
+
+  const revealCounter = () => {
+    if (!/^\d+$/.test(counterValue?.textContent.trim() || "")) return;
+    footer?.classList.add("has-visit-count");
+    observer.disconnect();
+  };
+
+  const observer = new MutationObserver(revealCounter);
+  if (counter) observer.observe(counter, { attributes: true, childList: true, subtree: true });
+
   const counterScript = document.createElement("script");
   counterScript.src = "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
   counterScript.async = true;

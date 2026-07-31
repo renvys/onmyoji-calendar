@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17141f" />
+    <meta name="description" content="阴阳师逢魔首领与极词条轮换日历" />
+    <title>逢魔日历</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="逢魔日历首页">
+        <span class="brand-mark" aria-hidden="true">逢</span>
+        <span>
+          <strong>逢魔日历</strong>
+          <small>每日首领 · 极词条轮换</small>
+        </span>
+      </a>
+      <button class="today-button" id="todayButton" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z" />
+        </svg>
+        回到今天
+      </button>
+    </header>
+
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="pageTitle">
+        <p class="eyebrow">DAILY ENCOUNTER</p>
+        <h1 id="pageTitle">今日逢魔，一目了然</h1>
+        <p>选择日期，查看当日首领与轮换词条。</p>
+      </section>
+
+      <div class="app-layout">
+        <section class="encounter-card" aria-live="polite" aria-labelledby="encounterTitle">
+          <div class="encounter-topline">
+            <span id="selectedDate">2026年7月31日</span>
+            <span class="status-badge is-extreme" id="statusBadge">极</span>
+          </div>
+
+          <div class="date-display">
+            <span class="date-number" id="dateNumber">31</span>
+            <div>
+              <span class="weekday" id="weekdayText">星期五</span>
+              <span class="lunar-note">逢魔之时</span>
+            </div>
+          </div>
+
+          <div class="seal" aria-hidden="true">
+            <span id="sealCharacter">鲶</span>
+          </div>
+
+          <div class="encounter-info">
+            <p class="section-label">当日首领</p>
+            <h2 id="encounterTitle">地震鲶</h2>
+            <div class="term-panel" id="termPanel">
+              <span class="term-kicker">极 · 今日词条</span>
+              <strong id="termName">咒术</strong>
+              <p id="termDescription">本周极玩法轮换词条</p>
+            </div>
+            <div class="ordinary-panel" id="ordinaryPanel" hidden>
+              <span>普通逢魔</span>
+              <p>今日首领暂无极玩法词条</p>
+            </div>
+          </div>
+
+          <div class="week-rule">
+            <span>每周轮换</span>
+            <div class="term-track" id="termTrack" aria-label="词条轮换顺序"></div>
+          </div>
+        </section>
+
+        <section class="calendar-card" aria-labelledby="monthTitle">
+          <div class="calendar-toolbar">
+            <div class="calendar-title">
+              <p class="section-label">MONTHLY CALENDAR</p>
+              <div class="month-picker" aria-label="快速选择年月">
+                <div class="year-picker" id="yearPicker">
+                  <button class="year-picker-button" id="yearSelect" type="button" aria-label="选择年份" aria-haspopup="listbox" aria-expanded="false" aria-controls="yearOptions">
+                    <span id="yearSelectValue">2026</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg>
+                  </button>
+                  <div class="year-options" id="yearOptions" role="listbox" aria-label="年份列表" hidden></div>
+                </div>
+                <span>年</span>
+                <div class="month-custom-picker" id="monthPicker">
+                  <button class="month-picker-button" id="monthSelect" type="button" aria-label="选择月份" aria-haspopup="listbox" aria-expanded="false" aria-controls="monthOptions">
+                    <span id="monthSelectValue">7</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg>
+                  </button>
+                  <div class="month-options" id="monthOptions" role="listbox" aria-label="月份列表" hidden></div>
+                </div>
+                <span>月</span>
+              </div>
+              <h2 class="sr-only" id="monthTitle">2026年 7月</h2>
+            </div>
+            <div class="month-actions">
+              <button id="previousMonth" class="icon-button" type="button" aria-label="上个月">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+              </button>
+              <button id="nextMonth" class="icon-button" type="button" aria-label="下个月">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="weekday-row" aria-hidden="true">
+            <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+          </div>
+          <div class="calendar-grid" id="calendarGrid" role="grid" aria-labelledby="monthTitle"></div>
+
+          <div class="calendar-legend">
+            <span class="wheel-hint">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="5"/><path d="M12 7v3"/></svg>
+              滚轮切换月份
+            </span>
+            <span><i class="legend-dot extreme"></i>极玩法</span>
+            <span><i class="legend-dot selected"></i>已选择</span>
+            <span><i class="legend-dot today"></i>今天</span>
+          </div>
+        </section>
+
+        <section class="schedule-strip" aria-labelledby="weeklyScheduleTitle">
+          <div class="schedule-heading">
+            <p class="section-label">WEEKLY SCHEDULE</p>
+            <h2 id="weeklyScheduleTitle">每周首领安排</h2>
+          </div>
+          <div class="schedule-list" id="scheduleList"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <span>非官方日历 · 数据仅供参考</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

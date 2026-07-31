@@ -425,7 +425,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
   .day-cell.is-outside .day-term { display: none; }
   .calendar-legend { justify-content: flex-start; padding-left: 5px; }
   .calendar-legend .wheel-hint { display: none; }
-  .schedule-strip { margin-bottom: 42px; padding: 22px 18px; }
+  .schedule-strip { display: none; }
   footer { line-height: 1.8; }
   footer span { display: block; }
 }

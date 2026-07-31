@@ -407,10 +407,15 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
   .year-picker-button svg, .month-picker-button svg { margin-right: -10px; }
   .month-picker #monthSelect { min-width: 56px; }
   .month-picker > span { font-size: 17px; }
-  .calendar-grid { grid-auto-rows: 64px; }
-  .day-cell { margin: 1px; padding: 6px 3px 4px; }
-  .day-boss { font-size: 8.5px; }
-  .day-term { padding: 2px 3px; font-size: 8px; }
+  .calendar-grid { grid-auto-rows: 66px; row-gap: 2px; }
+  .day-cell { margin: 0; padding: 6px 2px 5px; border-radius: 9px; text-align: center; }
+  .day-number { font-size: 14px; }
+  .day-boss { position: relative; display: block; width: max-content; max-width: calc(100% - 8px); margin: 7px auto 0; font-size: 9px; line-height: 1.15; text-align: center; }
+  .boss-name { display: block; overflow: visible; text-overflow: clip; }
+  .boss-extreme { position: absolute; top: -8px; right: -9px; width: 12px; height: 12px; font-size: 7px; }
+  .day-term { display: none; }
+  .day-cell.is-selected .day-term { display: block; width: max-content; margin: 4px auto 0; padding: 1px 3px; font-size: 8px; }
+  .day-cell.is-outside .day-boss, .day-cell.is-outside .day-term { display: none; }
   .calendar-legend { justify-content: flex-start; padding-left: 5px; }
   .calendar-legend .wheel-hint { display: none; }
   .schedule-strip { margin-bottom: 42px; padding: 22px 18px; }

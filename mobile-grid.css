@@ -1,0 +1,54 @@
+@media (max-width: 620px) {
+  .calendar-grid {
+    grid-auto-rows: 82px;
+    row-gap: 4px;
+  }
+
+  .day-cell {
+    margin: 0;
+    padding: 7px 2px 5px;
+    border-radius: 9px;
+    text-align: center;
+  }
+
+  .day-number {
+    font-size: 15px;
+  }
+
+  .day-boss {
+    position: relative;
+    display: block;
+    width: max-content;
+    max-width: none;
+    margin: 6px auto 0;
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: .08em;
+    text-align: center;
+  }
+
+  .boss-name {
+    display: block;
+    width: 1em;
+    overflow: visible;
+    line-height: 1.08;
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  .boss-extreme {
+    position: absolute;
+    top: -2px;
+    right: -14px;
+    width: 13px;
+    height: 13px;
+    font-size: 7px;
+  }
+
+  .day-term,
+  .day-cell.is-outside .day-boss,
+  .day-cell.is-outside .day-term {
+    display: none;
+  }
+}

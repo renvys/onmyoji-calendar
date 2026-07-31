@@ -3,13 +3,13 @@ const CONFIG = {
   bosses: ["鬼灵歌伎", "蜃气楼", "土蜘蛛", "荒骷髅", "地震鲶", "胧车", "夜荒魂"],
   terms: ["斗魂", "疾行", "巧劲", "易碎", "咒术", "猛火", "狂风"],
   termIcons: {
-    "斗魂": "assets/term-icons/douhun.png",
-    "疾行": "assets/term-icons/jixing.png",
-    "巧劲": "assets/term-icons/qiaojin.png",
-    "易碎": "assets/term-icons/yisui.png",
-    "咒术": "assets/term-icons/zhoushu.png",
-    "猛火": "assets/term-icons/menghuo.png",
-    "狂风": "assets/term-icons/kuangfeng.png"
+    "斗魂": "douhun",
+    "疾行": "jixing",
+    "巧劲": "qiaojin",
+    "易碎": "yisui",
+    "咒术": "zhoushu",
+    "猛火": "menghuo",
+    "狂风": "kuangfeng"
   },
   extremeWeekdays: new Set([1, 2, 3, 4]), // 周二至周五（下标从周一开始）
   baseMonday: new Date(2026, 6, 27),
@@ -119,13 +119,13 @@ function renderEncounter() {
 
   if (encounter.isExtreme) {
     elements.termName.textContent = encounter.term;
-    elements.termIcon.src = CONFIG.termIcons[encounter.term];
+    elements.termIcon.dataset.termIcon = CONFIG.termIcons[encounter.term];
   }
 
   elements.termTrack.innerHTML = CONFIG.terms.map((term, index) => {
     const active = encounter.termIndex === index ? " active" : "";
     return `<span class="term-pip${active}" role="img" title="${term}" aria-label="${term}">
-      <img src="${CONFIG.termIcons[term]}" alt="" aria-hidden="true" />
+      <span class="term-icon term-pip-icon" data-term-icon="${CONFIG.termIcons[term]}" aria-hidden="true"></span>
     </span>`;
   }).join("");
 }
@@ -162,7 +162,7 @@ function renderCalendar() {
     const todayClass = sameDay(date, today) ? " is-today" : "";
     const outsideClass = outside ? " is-outside" : "";
     const term = encounter.isExtreme ? `<span class="day-term">
-      <img class="day-term-icon" src="${CONFIG.termIcons[encounter.term]}" alt="" aria-hidden="true" />
+      <span class="term-icon day-term-icon" data-term-icon="${CONFIG.termIcons[encounter.term]}" aria-hidden="true"></span>
       <span>${encounter.term}</span>
     </span>` : "";
     const label = `${formatFullDate(date)}，${encounter.boss}${encounter.isExtreme ? `，极词条${encounter.term}` : "，普通逢魔"}`;

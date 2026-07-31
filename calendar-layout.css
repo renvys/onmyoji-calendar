@@ -77,7 +77,6 @@
   flex: 0 0 auto;
   width: 19px;
   height: 19px;
-  object-fit: contain;
 }
 
 @media (min-width: 901px) and (max-height: 480px) {

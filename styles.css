@@ -139,7 +139,15 @@ button { font: inherit; }
 .encounter-info h2 { margin: 0 0 22px; font-family: "Songti SC", STSong, serif; font-size: clamp(36px, 4.3vw, 52px); font-weight: 500; letter-spacing: .08em; }
 .term-panel, .ordinary-panel { padding: 19px 20px; border-radius: 14px; }
 .term-panel { display: flex; gap: 15px; align-items: center; background: linear-gradient(120deg, rgba(174,55,51,.26), rgba(174,55,51,.06)); border: 1px solid rgba(222,112,90,.2); }
-.term-panel-icon { flex: 0 0 auto; width: 58px; height: 58px; object-fit: contain; filter: drop-shadow(0 7px 12px rgba(0,0,0,.24)); }
+.term-icon { display: block; background-image: url("assets/term-icons/sprite-v1.webp"); background-repeat: no-repeat; background-size: 700% 100%; border-radius: 50%; }
+.term-icon[data-term-icon="douhun"] { background-position: 0% 50%; }
+.term-icon[data-term-icon="jixing"] { background-position: 16.6667% 50%; }
+.term-icon[data-term-icon="qiaojin"] { background-position: 33.3333% 50%; }
+.term-icon[data-term-icon="yisui"] { background-position: 50% 50%; }
+.term-icon[data-term-icon="zhoushu"] { background-position: 66.6667% 50%; }
+.term-icon[data-term-icon="menghuo"] { background-position: 83.3333% 50%; }
+.term-icon[data-term-icon="kuangfeng"] { background-position: 100% 50%; }
+.term-panel-icon { flex: 0 0 auto; width: 58px; height: 58px; filter: drop-shadow(0 7px 12px rgba(0,0,0,.24)); }
 .term-panel-copy { min-width: 0; }
 .term-kicker { display: block; color: #dca98e; font-size: 11px; letter-spacing: .14em; }
 .term-panel strong { display: block; margin-top: 3px; color: #ffe1a7; font-family: "Songti SC", STSong, serif; font-size: 30px; font-weight: 600; }
@@ -151,8 +159,8 @@ button { font: inherit; }
 .week-rule > span { color: var(--muted); font-size: 10px; letter-spacing: .13em; }
 .term-track { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; margin-top: 8px; }
 .term-pip { display: grid; place-items: center; min-width: 0; height: 31px; }
-.term-pip img { width: 25px; height: 25px; opacity: .28; filter: grayscale(.4) saturate(.65); transition: filter .2s, opacity .2s, transform .2s; }
-.term-pip.active img { opacity: 1; filter: drop-shadow(0 0 8px rgba(212,173,104,.5)); transform: translateY(-1px) scale(1.12); }
+.term-pip-icon { width: 25px; height: 25px; opacity: .28; filter: grayscale(.4) saturate(.65); transition: filter .2s, opacity .2s, transform .2s; }
+.term-pip.active .term-pip-icon { opacity: 1; filter: drop-shadow(0 0 8px rgba(212,173,104,.5)); transform: translateY(-1px) scale(1.12); }
 
 .calendar-card { min-height: 590px; padding: 31px; color: var(--paper-ink); background: var(--paper); border-radius: 22px; box-shadow: 0 24px 70px rgba(0,0,0,.22); }
 .calendar-toolbar { display: flex; justify-content: space-between; align-items: center; }
@@ -244,7 +252,7 @@ button { font: inherit; }
 .boss-extreme { flex: 0 0 auto; display: inline-grid; place-items: center; width: 15px; height: 15px; color: #fff8e9; background: var(--red); border-radius: 50%; font-size: 8px; font-style: normal; font-weight: 800; line-height: 1; }
 .day-cell.is-selected .boss-extreme { color: #6f2b29; background: var(--gold-soft); }
 .day-term { display: inline-flex; gap: 4px; align-items: center; justify-content: center; min-width: 38px; max-width: 100%; overflow: hidden; margin-top: 7px; padding: 2px 6px 2px 3px; color: #913a36; background: rgba(176,65,57,.12); border: 1px solid rgba(176,65,57,.12); border-radius: 999px; font-size: 10px; font-weight: 800; letter-spacing: .04em; text-overflow: ellipsis; white-space: nowrap; }
-.day-term-icon { flex: 0 0 auto; width: 19px; height: 19px; object-fit: contain; }
+.day-term-icon { flex: 0 0 auto; width: 19px; height: 19px; }
 .day-cell.is-selected .day-term { color: #5a2d25; background: #f4d995; }
 .calendar-legend { display: flex; gap: 19px; align-items: center; justify-content: flex-end; margin-top: 14px; color: var(--paper-muted); font-size: 10px; }
 .calendar-legend span { display: inline-flex; gap: 6px; align-items: center; }

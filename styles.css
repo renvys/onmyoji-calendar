@@ -138,7 +138,9 @@ button { font: inherit; }
 .encounter-info { position: relative; z-index: 1; margin-top: 76px; }
 .encounter-info h2 { margin: 0 0 22px; font-family: "Songti SC", STSong, serif; font-size: clamp(36px, 4.3vw, 52px); font-weight: 500; letter-spacing: .08em; }
 .term-panel, .ordinary-panel { padding: 19px 20px; border-radius: 14px; }
-.term-panel { background: linear-gradient(120deg, rgba(174,55,51,.26), rgba(174,55,51,.06)); border: 1px solid rgba(222,112,90,.2); }
+.term-panel { display: flex; gap: 15px; align-items: center; background: linear-gradient(120deg, rgba(174,55,51,.26), rgba(174,55,51,.06)); border: 1px solid rgba(222,112,90,.2); }
+.term-panel-icon { flex: 0 0 auto; width: 58px; height: 58px; object-fit: contain; filter: drop-shadow(0 7px 12px rgba(0,0,0,.24)); }
+.term-panel-copy { min-width: 0; }
 .term-kicker { display: block; color: #dca98e; font-size: 11px; letter-spacing: .14em; }
 .term-panel strong { display: block; margin-top: 3px; color: #ffe1a7; font-family: "Songti SC", STSong, serif; font-size: 30px; font-weight: 600; }
 .term-panel p, .ordinary-panel p { margin: 5px 0 0; color: var(--muted); font-size: 11px; }
@@ -147,9 +149,10 @@ button { font: inherit; }
 
 .week-rule { position: absolute; z-index: 1; right: 28px; bottom: 27px; left: 28px; }
 .week-rule > span { color: var(--muted); font-size: 10px; letter-spacing: .13em; }
-.term-track { display: flex; gap: 5px; margin-top: 10px; }
-.term-pip { flex: 1; height: 3px; background: rgba(255,255,255,.12); border-radius: 99px; }
-.term-pip.active { background: var(--gold); box-shadow: 0 0 11px rgba(212,173,104,.45); }
+.term-track { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; margin-top: 8px; }
+.term-pip { display: grid; place-items: center; min-width: 0; height: 31px; }
+.term-pip img { width: 25px; height: 25px; opacity: .28; filter: grayscale(.4) saturate(.65); transition: filter .2s, opacity .2s, transform .2s; }
+.term-pip.active img { opacity: 1; filter: drop-shadow(0 0 8px rgba(212,173,104,.5)); transform: translateY(-1px) scale(1.12); }
 
 .calendar-card { min-height: 590px; padding: 31px; color: var(--paper-ink); background: var(--paper); border-radius: 22px; box-shadow: 0 24px 70px rgba(0,0,0,.22); }
 .calendar-toolbar { display: flex; justify-content: space-between; align-items: center; }
@@ -240,7 +243,8 @@ button { font: inherit; }
 .boss-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .boss-extreme { flex: 0 0 auto; display: inline-grid; place-items: center; width: 15px; height: 15px; color: #fff8e9; background: var(--red); border-radius: 50%; font-size: 8px; font-style: normal; font-weight: 800; line-height: 1; }
 .day-cell.is-selected .boss-extreme { color: #6f2b29; background: var(--gold-soft); }
-.day-term { display: inline-grid; place-items: center; min-width: 38px; max-width: 100%; overflow: hidden; margin-top: 10px; padding: 4px 7px; color: #913a36; background: rgba(176,65,57,.12); border: 1px solid rgba(176,65,57,.12); border-radius: 7px; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-overflow: ellipsis; white-space: nowrap; }
+.day-term { display: inline-flex; gap: 4px; align-items: center; justify-content: center; min-width: 38px; max-width: 100%; overflow: hidden; margin-top: 7px; padding: 2px 6px 2px 3px; color: #913a36; background: rgba(176,65,57,.12); border: 1px solid rgba(176,65,57,.12); border-radius: 999px; font-size: 10px; font-weight: 800; letter-spacing: .04em; text-overflow: ellipsis; white-space: nowrap; }
+.day-term-icon { flex: 0 0 auto; width: 19px; height: 19px; object-fit: contain; }
 .day-cell.is-selected .day-term { color: #5a2d25; background: #f4d995; }
 .calendar-legend { display: flex; gap: 19px; align-items: center; justify-content: flex-end; margin-top: 14px; color: var(--paper-muted); font-size: 10px; }
 .calendar-legend span { display: inline-flex; gap: 6px; align-items: center; }
@@ -356,6 +360,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
   .encounter-info .section-label { margin-bottom: 3px; }
   .encounter-info h2 { margin-bottom: 9px; font-size: 34px; }
   .term-panel, .ordinary-panel { padding: 9px 13px; }
+  .term-panel { gap: 9px; }
+  .term-panel-icon { width: 34px; height: 34px; }
+  .term-kicker { display: inline; }
   .term-panel strong { display: inline; margin-left: 8px; font-size: 23px; }
   .term-panel p, .ordinary-panel p { display: none; }
   .week-rule { display: none; }
@@ -375,7 +382,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
   .day-number { font-size: 14px; }
   .day-boss { display: none; }
   .boss-extreme { width: 12px; height: 12px; font-size: 7px; }
-  .day-term { display: block; margin-top: 0; padding: 0 3px; font-size: 8px; }
+  .day-term { display: inline-flex; gap: 2px; margin-top: 0; padding: 0 3px 0 1px; font-size: 8px; }
+  .day-term-icon { width: 12px; height: 12px; }
   .calendar-legend { display: none; }
   .schedule-strip { grid-template-columns: 138px 1fr; padding: 8px 12px; border-radius: 13px; }
   .schedule-heading h2 { font-size: 16px; }
@@ -421,13 +429,20 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
   .calendar-grid { grid-auto-rows: 64px; row-gap: 2px; }
   .day-cell { margin: 0; padding: 7px 2px 4px; border-radius: 9px; text-align: center; }
   .day-number { font-size: 15px; }
-  .day-term { display: inline-grid; min-width: 32px; margin: 9px auto 0; padding: 3px 4px; border-radius: 6px; font-size: 10px; }
+  .day-term { display: inline-flex; gap: 2px; min-width: 0; margin: 7px auto 0; padding: 2px 4px 2px 2px; font-size: 9px; }
+  .day-term-icon { width: 16px; height: 16px; }
   .day-cell.is-outside .day-term { display: none; }
   .calendar-legend { justify-content: flex-start; padding-left: 5px; }
   .calendar-legend .wheel-hint { display: none; }
   .schedule-strip { display: none; }
   footer { line-height: 1.8; }
   footer span { display: block; }
+}
+
+@media (max-width: 380px) {
+  .day-term { padding: 2px; }
+  .day-term > span { display: none; }
+  .day-term-icon { width: 19px; height: 19px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

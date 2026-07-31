@@ -225,7 +225,7 @@ button { font: inherit; }
 .weekday-row { align-items: start; margin-top: 25px; padding-bottom: 10px; color: var(--paper-muted); border-bottom: 1px solid rgba(41,36,45,.1); font-size: 11px; text-align: center; }
 .weekday-heading { display: grid; gap: 5px; justify-items: center; min-width: 0; }
 .weekday-heading > b { font-size: 11px; font-weight: 500; }
-.weekday-boss { position: relative; display: block; max-width: 100%; color: #756b70; font-family: "Songti SC", STSong, serif; font-size: 9px; line-height: 1; white-space: nowrap; }
+.weekday-boss { position: relative; display: block; max-width: 100%; padding: 3px 6px; color: #7f312f; background: rgba(163,78,70,.09); border: 1px solid rgba(163,78,70,.12); border-radius: 999px; font-family: "Songti SC", STSong, serif; font-size: 11px; font-weight: 700; line-height: 1.1; white-space: nowrap; }
 .weekday-extreme { position: absolute; top: -7px; right: -10px; display: inline-grid; place-items: center; width: 12px; height: 12px; color: #fff8e9; background: var(--red); border-radius: 50%; font-size: 7px; font-style: normal; font-weight: 800; line-height: 1; }
 .calendar-grid { grid-auto-rows: minmax(69px, 1fr); padding-top: 5px; }
 .day-cell { position: relative; min-width: 0; margin: 2px; padding: 7px 5px 5px; color: var(--paper-ink); background: transparent; border: 1px solid transparent; border-radius: 11px; text-align: left; cursor: pointer; transition: background .16s, transform .16s, border-color .16s; }
@@ -368,7 +368,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
   .icon-button { width: 32px; height: 32px; }
   .weekday-row { margin-top: 4px; padding-bottom: 3px; }
   .weekday-heading { gap: 2px; }
-  .weekday-boss { font-size: 7px; }
+  .weekday-boss { padding: 2px 4px; font-size: 8px; }
   .weekday-extreme { top: -5px; right: -7px; width: 9px; height: 9px; font-size: 5px; }
   .calendar-grid { grid-auto-rows: minmax(33px, 1fr); padding-top: 2px; }
   .day-cell { margin: 1px; padding: 3px 4px; border-radius: 8px; }
@@ -416,7 +416,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
   .month-picker > span { font-size: 17px; }
   .weekday-row { margin-top: 19px; padding-bottom: 10px; }
   .weekday-heading { gap: 4px; }
-  .weekday-boss { font-size: 7.5px; letter-spacing: -.04em; }
+  .weekday-boss { padding: 3px 2px; font-size: 8.5px; letter-spacing: -.04em; }
   .weekday-extreme { top: -7px; right: -8px; width: 11px; height: 11px; font-size: 6px; }
   .calendar-grid { grid-auto-rows: 64px; row-gap: 2px; }
   .day-cell { margin: 0; padding: 7px 2px 4px; border-radius: 9px; text-align: center; }

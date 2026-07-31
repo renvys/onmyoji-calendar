@@ -1,0 +1,143 @@
+.weekday-row {
+  align-items: start;
+  padding-bottom: 10px;
+}
+
+.weekday-heading {
+  display: grid;
+  gap: 5px;
+  justify-items: center;
+  min-width: 0;
+}
+
+.weekday-heading > b {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.weekday-boss {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  color: #756b70;
+  font-family: "Songti SC", STSong, serif;
+  font-size: 9px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.weekday-extreme {
+  position: absolute;
+  top: -7px;
+  right: -10px;
+  display: inline-grid;
+  place-items: center;
+  width: 12px;
+  height: 12px;
+  color: #fff8e9;
+  background: #b3413c;
+  border-radius: 50%;
+  font-size: 7px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.day-boss {
+  display: none;
+}
+
+.day-term {
+  display: inline-grid;
+  place-items: center;
+  min-width: 38px;
+  margin-top: 10px;
+  padding: 4px 7px;
+  color: #913a36;
+  background: rgba(176, 65, 57, .12);
+  border: 1px solid rgba(176, 65, 57, .12);
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+@media (min-width: 901px) and (max-height: 480px) {
+  .weekday-heading {
+    gap: 2px;
+  }
+
+  .weekday-boss {
+    font-size: 7px;
+  }
+
+  .weekday-extreme {
+    top: -5px;
+    right: -7px;
+    width: 9px;
+    height: 9px;
+    font-size: 5px;
+  }
+
+  .day-term {
+    display: block;
+    min-width: 0;
+    margin-top: 0;
+    padding: 0 3px;
+    border-radius: 4px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 620px) {
+  .weekday-row {
+    margin-top: 19px;
+    padding-bottom: 10px;
+  }
+
+  .weekday-heading {
+    gap: 4px;
+  }
+
+  .weekday-boss {
+    font-size: 7.5px;
+    letter-spacing: -.04em;
+  }
+
+  .weekday-extreme {
+    top: -7px;
+    right: -8px;
+    width: 11px;
+    height: 11px;
+    font-size: 6px;
+  }
+
+  .calendar-grid {
+    grid-auto-rows: 64px;
+    row-gap: 2px;
+  }
+
+  .day-cell {
+    margin: 0;
+    padding: 7px 2px 4px;
+    border-radius: 9px;
+    text-align: center;
+  }
+
+  .day-number {
+    font-size: 15px;
+  }
+
+  .day-term {
+    display: inline-grid;
+    min-width: 32px;
+    margin: 9px auto 0;
+    padding: 3px 4px;
+    border-radius: 6px;
+    font-size: 10px;
+  }
+
+  .day-cell.is-outside .day-term {
+    display: none;
+  }
+}

@@ -222,7 +222,11 @@ button { font: inherit; }
 .icon-button:disabled { opacity: .3; cursor: not-allowed; background: transparent; transform: none; }
 
 .weekday-row, .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
-.weekday-row { margin-top: 25px; padding-bottom: 11px; color: var(--paper-muted); border-bottom: 1px solid rgba(41,36,45,.1); font-size: 11px; text-align: center; }
+.weekday-row { align-items: start; margin-top: 25px; padding-bottom: 10px; color: var(--paper-muted); border-bottom: 1px solid rgba(41,36,45,.1); font-size: 11px; text-align: center; }
+.weekday-heading { display: grid; gap: 5px; justify-items: center; min-width: 0; }
+.weekday-heading > b { font-size: 11px; font-weight: 500; }
+.weekday-boss { position: relative; display: block; max-width: 100%; color: #756b70; font-family: "Songti SC", STSong, serif; font-size: 9px; line-height: 1; white-space: nowrap; }
+.weekday-extreme { position: absolute; top: -7px; right: -10px; display: inline-grid; place-items: center; width: 12px; height: 12px; color: #fff8e9; background: var(--red); border-radius: 50%; font-size: 7px; font-style: normal; font-weight: 800; line-height: 1; }
 .calendar-grid { grid-auto-rows: minmax(69px, 1fr); padding-top: 5px; }
 .day-cell { position: relative; min-width: 0; margin: 2px; padding: 7px 5px 5px; color: var(--paper-ink); background: transparent; border: 1px solid transparent; border-radius: 11px; text-align: left; cursor: pointer; transition: background .16s, transform .16s, border-color .16s; }
 .day-cell:hover { background: rgba(41,36,45,.06); transform: translateY(-1px); }
@@ -232,11 +236,11 @@ button { font: inherit; }
 .day-cell.is-today .day-number::after { content: ""; position: absolute; width: 4px; height: 4px; margin: 4px 0 0 3px; background: var(--red); border-radius: 50%; }
 .day-cell.is-selected .day-number::after { background: var(--gold-soft); }
 .day-number { display: block; position: relative; font-family: Georgia, serif; font-size: 16px; font-weight: 600; }
-.day-boss { display: flex; gap: 3px; align-items: center; min-width: 0; margin-top: 6px; font-size: 10px; white-space: nowrap; opacity: .82; }
+.day-boss { display: none; }
 .boss-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .boss-extreme { flex: 0 0 auto; display: inline-grid; place-items: center; width: 15px; height: 15px; color: #fff8e9; background: var(--red); border-radius: 50%; font-size: 8px; font-style: normal; font-weight: 800; line-height: 1; }
 .day-cell.is-selected .boss-extreme { color: #6f2b29; background: var(--gold-soft); }
-.day-term { display: inline-block; max-width: 100%; overflow: hidden; margin-top: 3px; padding: 2px 5px; color: #953e39; background: rgba(176,65,57,.1); border-radius: 4px; font-size: 9px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.day-term { display: inline-grid; place-items: center; min-width: 38px; max-width: 100%; overflow: hidden; margin-top: 10px; padding: 4px 7px; color: #913a36; background: rgba(176,65,57,.12); border: 1px solid rgba(176,65,57,.12); border-radius: 7px; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-overflow: ellipsis; white-space: nowrap; }
 .day-cell.is-selected .day-term { color: #5a2d25; background: #f4d995; }
 .calendar-legend { display: flex; gap: 19px; align-items: center; justify-content: flex-end; margin-top: 14px; color: var(--paper-muted); font-size: 10px; }
 .calendar-legend span { display: inline-flex; gap: 6px; align-items: center; }
@@ -363,10 +367,13 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
   .month-picker > span { font-size: 17px; }
   .icon-button { width: 32px; height: 32px; }
   .weekday-row { margin-top: 4px; padding-bottom: 3px; }
+  .weekday-heading { gap: 2px; }
+  .weekday-boss { font-size: 7px; }
+  .weekday-extreme { top: -5px; right: -7px; width: 9px; height: 9px; font-size: 5px; }
   .calendar-grid { grid-auto-rows: minmax(33px, 1fr); padding-top: 2px; }
   .day-cell { margin: 1px; padding: 3px 4px; border-radius: 8px; }
   .day-number { font-size: 14px; }
-  .day-boss { display: flex; margin-top: 1px; font-size: 8.5px; }
+  .day-boss { display: none; }
   .boss-extreme { width: 12px; height: 12px; font-size: 7px; }
   .day-term { display: block; margin-top: 0; padding: 0 3px; font-size: 8px; }
   .calendar-legend { display: none; }
@@ -407,14 +414,15 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
   .year-picker-button svg, .month-picker-button svg { margin-right: -10px; }
   .month-picker #monthSelect { min-width: 56px; }
   .month-picker > span { font-size: 17px; }
-  .calendar-grid { grid-auto-rows: 82px; row-gap: 4px; }
-  .day-cell { margin: 0; padding: 7px 2px 5px; border-radius: 9px; text-align: center; }
+  .weekday-row { margin-top: 19px; padding-bottom: 10px; }
+  .weekday-heading { gap: 4px; }
+  .weekday-boss { font-size: 7.5px; letter-spacing: -.04em; }
+  .weekday-extreme { top: -7px; right: -8px; width: 11px; height: 11px; font-size: 6px; }
+  .calendar-grid { grid-auto-rows: 64px; row-gap: 2px; }
+  .day-cell { margin: 0; padding: 7px 2px 4px; border-radius: 9px; text-align: center; }
   .day-number { font-size: 15px; }
-  .day-boss { position: relative; display: block; width: max-content; max-width: none; margin: 6px auto 0; font-size: 10px; line-height: 1; letter-spacing: .08em; text-align: center; }
-  .boss-name { display: block; width: 1em; overflow: visible; line-height: 1.08; text-overflow: clip; white-space: normal; word-break: break-all; }
-  .boss-extreme { position: absolute; top: -2px; right: -14px; width: 13px; height: 13px; font-size: 7px; }
-  .day-term { display: none; }
-  .day-cell.is-outside .day-boss, .day-cell.is-outside .day-term { display: none; }
+  .day-term { display: inline-grid; min-width: 32px; margin: 9px auto 0; padding: 3px 4px; border-radius: 6px; font-size: 10px; }
+  .day-cell.is-outside .day-term { display: none; }
   .calendar-legend { justify-content: flex-start; padding-left: 5px; }
   .calendar-legend .wheel-hint { display: none; }
   .schedule-strip { margin-bottom: 42px; padding: 22px 18px; }

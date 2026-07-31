@@ -148,7 +148,6 @@ function renderCalendar() {
     const selectedClass = sameDay(date, selected) ? " is-selected" : "";
     const todayClass = sameDay(date, today) ? " is-today" : "";
     const outsideClass = outside ? " is-outside" : "";
-    const extremeMark = encounter.isExtreme ? `<i class="boss-extreme">极</i>` : "";
     const term = encounter.isExtreme ? `<span class="day-term">${encounter.term}</span>` : "";
     const label = `${formatFullDate(date)}，${encounter.boss}${encounter.isExtreme ? `，极词条${encounter.term}` : "，普通逢魔"}`;
 
@@ -156,7 +155,6 @@ function renderCalendar() {
       <button class="day-cell${outsideClass}${selectedClass}${todayClass}" type="button"
         role="gridcell" data-date="${dateKey(date)}" aria-label="${label}" aria-selected="${sameDay(date, selected)}">
         <span class="day-number">${date.getDate()}</span>
-        <span class="day-boss" title="${encounter.boss}"><span class="boss-name">${encounter.boss}</span>${extremeMark}</span>
         ${term}
       </button>
     `);
